@@ -14,7 +14,21 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+    raise TriangleError if a<=0 or b<=0 or c<=0
+    raise TriangleError if a+b<=c or b+c<=a or a+c<=b
+
+    if a == b && b == c
+      return :equilateral
+    elsif a == b || a == c || b == c
+      return :isosceles
+    elsif a != b && a != c && b != c
+      return :scalene
+    else raise RuntimeError.New("DAMN BOY")
+    end
+  rescue RuntimeError => ex
+    puts "DAMN FEHELR"
+    return nil
+
 end
 
 # Error class used in part 2.  No need to change this code.
